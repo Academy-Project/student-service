@@ -10,7 +10,6 @@ import com.academyproject.student.student_transcript.request.CreateStudentTransc
 import com.academyproject.student.student_transcript.request.UpdateStudentTranscriptRequest;
 import com.academyproject.student.student_transcript.response.StudentTranscriptResource;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,15 +22,16 @@ public class StudentTranscriptService {
     private final ValidationService validationService;
     private final StudentRepository studentRepository;
 
-    public List<StudentTranscript> getList() {
-        return studentTranscriptRepository.findAll();
+    public List<StudentTranscriptResource> getList() {
+        var studentTranscripts = studentTranscriptRepository.findAll();
+        return studentTranscripts.stream().map(this::toStudentTranscriptResource).toList();
     }
 
     public List<StudentTranscriptResource> getListByStudent(String nim) {
         Student student = studentRepository.findById(nim)
                 .orElseThrow(() -> new NotFoundException("Student"));
-        var s = studentTranscriptRepository.findByStudent(student);
-        return s.stream().map(this::toStudentTranscriptResource).toList();
+        var studentTranscripts = studentTranscriptRepository.findByStudent(student);
+        return studentTranscripts.stream().map(this::toStudentTranscriptResource).toList();
     }
 
     public StudentTranscriptResource save(CreateStudentTranscriptRequest studentRequest) {
@@ -83,7 +83,7 @@ public class StudentTranscriptService {
                 .sks(studentTranscript.getSks())
                 .semester(studentTranscript.getSemester())
                 .ipk(studentTranscript.getIpk())
-                .student(studentTranscript.getStudent())
+//                .student(studentTranscript.getStudent())
                 .build();
     }
 

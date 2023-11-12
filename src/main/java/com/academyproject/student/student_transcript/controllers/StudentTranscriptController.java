@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Handler;
 
 @RestController
 @RequestMapping("/api/students/transcripts")
@@ -20,13 +21,13 @@ public class StudentTranscriptController {
     private final StudentTranscriptService studentTranscriptService;
 
     @GetMapping
-    public List<StudentTranscript> getList() {
-        return studentTranscriptService.getList();
+    public ResponseEntity<Object> getList() {
+        return ResponseHandler.responseWithoutMessage(studentTranscriptService.getList(), HttpStatus.OK);
     }
 
     @GetMapping("/student/{nim}")
-    public List<StudentTranscriptResource> getListByStudent(String nim) {
-        return studentTranscriptService.getListByStudent(nim);
+    public ResponseEntity<Object> getListByStudent(String nim) {
+        return ResponseHandler.responseWithoutMessage(studentTranscriptService.getListByStudent(nim), HttpStatus.OK);
     }
 
     @PostMapping

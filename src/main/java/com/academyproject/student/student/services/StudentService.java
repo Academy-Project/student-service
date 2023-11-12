@@ -80,11 +80,13 @@ public class StudentService {
     }
 
     private StudentResponse handleConvertToStudentResponse(Student student) {
+
         return StudentResponse.builder()
                 .nim(student.getNim())
                 .name(student.getName())
                 .phone(student.getPhone())
                 .address(student.getAddress())
+                .totalSks(student.calculateTotalSks())
                 .phone(student.getPhone())
                 .build();
     }

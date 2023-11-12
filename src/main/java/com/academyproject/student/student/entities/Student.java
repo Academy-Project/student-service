@@ -30,4 +30,10 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     private List<StudentTranscript> studentTranscripts;
+
+    public int calculateTotalSks() {
+        return studentTranscripts.stream()
+                .mapToInt(StudentTranscript::getSks)
+                .sum();
+    }
 }

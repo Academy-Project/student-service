@@ -16,5 +16,5 @@ public class StudentTranscriptResource {
     private String semester;
     private Double ipk;
 
-    private Student student;
+//    private Student student;
 }
