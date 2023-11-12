@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-@Slf4j
 public class StudentTranscriptService {
 
     private final StudentTranscriptRepository studentTranscriptRepository;
@@ -40,12 +39,11 @@ public class StudentTranscriptService {
         Student student = studentRepository.findById(studentRequest.getNim())
                 .orElseThrow(() -> new NotFoundException("Student"));
 
-        log.info("Student: {}", student);
         StudentTranscript studentTranscript = StudentTranscript.builder()
                 .sks(studentRequest.getSks())
                 .semester(studentRequest.getSemester())
                 .ipk(studentRequest.getIpk())
-//                .student(student)
+                .student(student)
                 .build();
         studentTranscriptRepository.save(studentTranscript);
 
@@ -88,4 +86,5 @@ public class StudentTranscriptService {
                 .student(studentTranscript.getStudent())
                 .build();
     }
+
 }

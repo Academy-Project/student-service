@@ -1,9 +1,7 @@
 package com.academyproject.student.student_transcript.controllers;
 
-import com.academyproject.student.common.exceptions.NotFoundException;
 import com.academyproject.student.common.resource.ResponseHandler;
 import com.academyproject.student.student_transcript.entities.StudentTranscript;
-import com.academyproject.student.student_transcript.repositories.StudentTranscriptRepository;
 import com.academyproject.student.student_transcript.request.CreateStudentTranscriptRequest;
 import com.academyproject.student.student_transcript.request.UpdateStudentTranscriptRequest;
 import com.academyproject.student.student_transcript.response.StudentTranscriptResource;
@@ -13,23 +11,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/students/transcripts")
 @RequiredArgsConstructor
 public class StudentTranscriptController {
     private final StudentTranscriptService studentTranscriptService;
-    private final StudentTranscriptRepository studentTranscriptRepository;
 
     @GetMapping
-    public Optional<StudentTranscript> getList() {
-        return Optional.ofNullable(studentTranscriptRepository.findById(602L).orElseThrow(() -> new NotFoundException("xxx")));
+    public List<StudentTranscript> getList() {
+        return studentTranscriptService.getList();
     }
-//        return ResponseHandler.generateResponse(
-//                "Student transcript list", studentTranscriptResponse, HttpStatus.OK
-//        );
-//        return studentTranscriptService.getList();
+
+    @GetMapping("/student/{nim}")
+    public List<StudentTranscriptResource> getListByStudent(String nim) {
+        return studentTranscriptService.getListByStudent(nim);
+    }
 
     @PostMapping
     public ResponseEntity<Object>
@@ -49,13 +47,6 @@ public class StudentTranscriptController {
         return ResponseHandler.generateResponse(
                 "Student transcript updated", studentResponse, HttpStatus.OK
         );
-    }
-
-    @GetMapping("/student/{id}")
-    public ResponseEntity<Object> show(@PathVariable String id) {
-        var response = studentTranscriptService.getListByStudent(id);
-
-        return ResponseHandler.responseWithoutMessage(response, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

@@ -38,6 +38,7 @@ class StudentTranscriptControllerTest {
 
     @BeforeEach
     void setUp() {
+        studentTranscriptRepository.deleteAll();
         studentRepository.deleteAll();
     }
 
@@ -63,13 +64,15 @@ class StudentTranscriptControllerTest {
         createRequest.setIpk(3.0);
         createRequest.setSks(20);
 
-        var result = mockMvc.perform(post("/api/students/transcripts")
+        mockMvc.perform(post("/api/students/transcripts")
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(createRequest)))
-                .andExpect(status().isOk())
-                .andReturn();
+                .andExpectAll(
+                        status().isCreated(),
+                        jsonPath("$.message").value("Student transcript created")
+                );
 
-        System.out.println("Response content: " + result.getResponse().getContentAsString());
+//        System.out.println("Response content: " + result.getResponse().getContentAsString());
 
 
         // ensure  request and response is valid
