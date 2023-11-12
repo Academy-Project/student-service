@@ -27,7 +27,6 @@ public class Student {
     @Column(nullable = false)
     private String phone;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student")
     private List<StudentTranscript> studentTranscripts;
-
 }

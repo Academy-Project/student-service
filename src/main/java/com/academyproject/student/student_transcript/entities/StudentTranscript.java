@@ -3,6 +3,7 @@ package com.academyproject.student.student_transcript.entities;
 import com.academyproject.student.student.entities.Student;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class StudentTranscript {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +19,7 @@ public class StudentTranscript {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "nim", referencedColumnName = "nim", nullable = false)
+    @JoinColumn(name = "nim", referencedColumnName = "nim")
     private Student student;
 
     @Column(nullable = false)

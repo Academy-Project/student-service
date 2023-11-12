@@ -22,6 +22,7 @@ public class CreateStudentRequest {
     private String name;
 
     @NotBlank
+    @Size(max = 255)
     private String address;
 
     @NotBlank

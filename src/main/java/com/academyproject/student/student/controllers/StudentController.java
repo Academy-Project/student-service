@@ -1,7 +1,8 @@
 package com.academyproject.student.student.controllers;
 
 import com.academyproject.student.common.resource.ResponseHandler;
-import com.academyproject.student.student.request.*;
+import com.academyproject.student.student.request.CreateStudentRequest;
+import com.academyproject.student.student.request.UpdateStudentRequest;
 import com.academyproject.student.student.response.StudentResponse;
 import com.academyproject.student.student.services.StudentService;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,6 @@
 package com.academyproject.student.common.advice;
 
+import com.academyproject.student.common.exceptions.NotFoundException;
 import com.academyproject.student.common.resource.ResponseHandler;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,14 @@ public class RestAdviceController {
         return ResponseHandler.errorResponse(
                 Collections.singletonList(e.getReason()),
                 (HttpStatus) e.getStatusCode()
+        );
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Object> notFoundException(NotFoundException e) {
+        return ResponseHandler.errorResponse(
+                Collections.singletonList(e.getMessage()),
+                HttpStatus.NOT_FOUND
         );
     }
 }

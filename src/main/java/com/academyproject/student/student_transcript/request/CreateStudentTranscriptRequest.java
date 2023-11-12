@@ -1,10 +1,9 @@
 package com.academyproject.student.student_transcript.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.validation.annotation.Validated;
 
 @Data
@@ -12,7 +11,17 @@ import org.springframework.validation.annotation.Validated;
 @NoArgsConstructor
 @Validated
 public class CreateStudentTranscriptRequest {
+    @NotBlank
+    private String nim;
+
+    @NotNull
+    @Min(0)
     private Integer sks;
+
+    @NotBlank
     private String semester;
+
+    @DecimalMin(value = "0.0", inclusive = false)
+    @DecimalMax(value = "4.0", inclusive = false)
     private Double ipk;
 }

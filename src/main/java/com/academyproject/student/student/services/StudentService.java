@@ -1,27 +1,24 @@
 package com.academyproject.student.student.services;
 
 import com.academyproject.student.common.exceptions.NotFoundException;
+import com.academyproject.student.common.services.ValidationService;
 import com.academyproject.student.student.entities.Student;
 import com.academyproject.student.student.repositories.StudentRepository;
 import com.academyproject.student.student.request.CreateStudentRequest;
 import com.academyproject.student.student.request.UpdateStudentRequest;
 import com.academyproject.student.student.response.StudentResponse;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class StudentService {
     private final StudentRepository studentRepo;
-    private final Validator validator;
+    private final ValidationService validationService;
 
     public List<StudentResponse> getListStudents() {
         var students = studentRepo.findAll();
@@ -33,10 +30,7 @@ public class StudentService {
     public StudentResponse save(CreateStudentRequest studentRequest) {
 
         // validation
-        Set<ConstraintViolation<CreateStudentRequest>> constraintViolations = validator.validate(studentRequest);
-        if (0 != constraintViolations.size()) {
-            throw new ConstraintViolationException(constraintViolations);
-        }
+        validationService.validate(studentRequest);
 
         /* ensure nim is unique */
         if (studentRepo.existsById(studentRequest.getNim())) {
@@ -57,14 +51,16 @@ public class StudentService {
     }
 
     public StudentResponse findByNim(String nim) {
-        Student student = handleFindByNim(nim);
+        Student student = findStudentByNim(nim);
 
         return handleConvertToStudentResponse(student);
 
     }
 
     public StudentResponse update(String nim, UpdateStudentRequest studentRequest) {
-        var student = handleFindByNim(nim);
+        validationService.validate(studentRequest);
+
+        var student = findStudentByNim(nim);
 
         student.setName(studentRequest.getName());
         student.setAddress(studentRequest.getAddress());
@@ -78,7 +74,7 @@ public class StudentService {
         studentRepo.deleteById(nim);
     }
 
-    private Student handleFindByNim(String nim) {
+    public Student findStudentByNim(String nim) {
         return studentRepo.findById(nim)
                 .orElseThrow(() -> new NotFoundException("Student"));
     }
