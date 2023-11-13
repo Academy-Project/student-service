@@ -1,18 +1,13 @@
 package com.academyproject.student.student_transcript.controllers;
 
 import com.academyproject.student.common.resource.ResponseHandler;
-import com.academyproject.student.student_transcript.entities.StudentTranscript;
 import com.academyproject.student.student_transcript.request.CreateStudentTranscriptRequest;
 import com.academyproject.student.student_transcript.request.UpdateStudentTranscriptRequest;
-import com.academyproject.student.student_transcript.response.StudentTranscriptResource;
 import com.academyproject.student.student_transcript.services.StudentTranscriptService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.logging.Handler;
 
 @RestController
 @RequestMapping("/api/students/transcripts")
