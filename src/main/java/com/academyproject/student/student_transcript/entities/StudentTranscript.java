@@ -21,7 +21,7 @@ public class StudentTranscript {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "nim", referencedColumnName = "nim")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Student student;
 
     @Column(nullable = false)

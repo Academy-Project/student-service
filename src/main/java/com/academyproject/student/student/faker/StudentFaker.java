@@ -13,6 +13,7 @@ public class StudentFaker {
 
     public void generateDummyData() {
         Student student = Student.builder()
+                .id("177")
                 .nim("672021077")
                 .name("Agung Prasetyo Nugroho")
                 .address("Kec. Pabelan Kab. Semarang")

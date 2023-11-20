@@ -20,7 +20,11 @@ import java.util.List;
 public class Student {
     @Id
     @Column(nullable = false)
+    private String id;
+
+    @Column(nullable = false)
     private String nim;
+
     @Column(nullable = false)
     private String name;
 

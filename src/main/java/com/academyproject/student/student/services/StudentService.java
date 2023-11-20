@@ -33,11 +33,12 @@ public class StudentService {
         validationService.validate(studentRequest);
 
         /* ensure nim is unique */
-        if (studentRepo.existsById(studentRequest.getNim())) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "NIM already exists");
+        if (studentRepo.existsById(studentRequest.getId())) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Id already exists");
         }
 
         Student rawStudent = Student.builder()
+                .id(studentRequest.getId())
                 .nim(studentRequest.getNim())
                 .name(studentRequest.getName())
                 .phone(studentRequest.getPhone())
@@ -50,18 +51,19 @@ public class StudentService {
         return handleConvertToStudentResponse(student);
     }
 
-    public StudentResponse findByNim(String nim) {
-        Student student = findStudentByNim(nim);
+    public StudentResponse findById(String id) {
+        Student student = findStudentById(id);
 
         return handleConvertToStudentResponse(student);
 
     }
 
-    public StudentResponse update(String nim, UpdateStudentRequest studentRequest) {
+    public StudentResponse update(String id, UpdateStudentRequest studentRequest) {
         validationService.validate(studentRequest);
 
-        var student = findStudentByNim(nim);
+        var student = findStudentById(id);
 
+        student.setNim(studentRequest.getNim());
         student.setName(studentRequest.getName());
         student.setAddress(studentRequest.getAddress());
         student.setPhone(studentRequest.getPhone());
@@ -70,18 +72,19 @@ public class StudentService {
         return handleConvertToStudentResponse(student);
     }
 
-    public void deleteByNim(String nim) {
-        studentRepo.deleteById(nim);
+    public void deleteById(String id) {
+        studentRepo.deleteById(id);
     }
 
-    public Student findStudentByNim(String nim) {
-        return studentRepo.findById(nim)
+    public Student findStudentById(String id) {
+        return studentRepo.findById(id)
                 .orElseThrow(() -> new NotFoundException("Student"));
     }
 
     private StudentResponse handleConvertToStudentResponse(Student student) {
 
         return StudentResponse.builder()
+                .id(student.getId())
                 .nim(student.getNim())
                 .name(student.getName())
                 .phone(student.getPhone())

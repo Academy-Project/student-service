@@ -17,14 +17,14 @@ public class StudentApplication {
         SpringApplication.run(StudentApplication.class, args);
     }
 
-//    @Bean
-//    public CommandLineRunner faker() {
-//        return args -> {
-//            System.out.println("Creating faker...");
-//
-//            studentFaker.generateDummyData();
-//
-//            System.out.println("faker created!");
-//        };
-//    }
+    @Bean
+    public CommandLineRunner faker() {
+        return args -> {
+            System.out.println("Creating faker...");
+
+            studentFaker.generateDummyData();
+
+            System.out.println("faker created!");
+        };
+    }
 }

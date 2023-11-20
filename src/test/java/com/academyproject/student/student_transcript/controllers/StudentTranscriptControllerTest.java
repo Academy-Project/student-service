@@ -51,6 +51,7 @@ class StudentTranscriptControllerTest {
     void testSuccessCreateStudent() throws Exception {
         // mock data request
         Student student = Student.builder()
+                .id("177")
                 .nim("672021077")
                 .name("Agung Prasetyo Nugroho")
                 .address("Kec. Pabelan Kab. Semarang")
@@ -102,6 +103,7 @@ class StudentTranscriptControllerTest {
     void testCannotBlankCreateStudent() throws Exception {
         // mock data request (Name is blank)
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
+        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
         createStudentRequest.setPhone("0234234324323");
@@ -113,7 +115,7 @@ class StudentTranscriptControllerTest {
         ).andExpectAll(status().isUnprocessableEntity());
 
         // Test data is created in database
-        Student student = studentRepository.findById(createStudentRequest.getNim()).orElse(null);
+        Student student = studentRepository.findById(createStudentRequest.getId()).orElse(null);
         assertNull(student);
     }
 
@@ -121,6 +123,7 @@ class StudentTranscriptControllerTest {
     void testCannotDuplicateNIM() throws Exception {
         // mock data request
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
+        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setName("Agung Prasetyo Nugroho");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
@@ -128,6 +131,7 @@ class StudentTranscriptControllerTest {
 
         // store first data with same NIM
         studentRepository.save(Student.builder()
+                .id(createStudentRequest.getId())
                 .nim(createStudentRequest.getNim())
                 .name(createStudentRequest.getName())
                 .address(createStudentRequest.getAddress())
@@ -144,7 +148,7 @@ class StudentTranscriptControllerTest {
         );
 
         // Ensure in database only has one data with same NIM
-        Long contNim = studentRepository.countByNim(createStudentRequest.getNim());
+        Long contNim = studentRepository.countById(createStudentRequest.getId());
         assertEquals(1L, contNim);
     }
 

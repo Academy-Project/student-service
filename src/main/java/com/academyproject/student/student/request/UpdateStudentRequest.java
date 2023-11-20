@@ -13,6 +13,9 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class UpdateStudentRequest {
     @NotBlank
+    @Size(max = 9)
+    private String nim;
+
     @Size(max = 100)
     private String name;
 

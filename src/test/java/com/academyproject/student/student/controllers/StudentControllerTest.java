@@ -44,6 +44,7 @@ class StudentControllerTest {
     void testSuccessCreateStudent() throws Exception {
         // mock data request
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
+        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setName("Agung Prasetyo Nugroho");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
@@ -56,6 +57,7 @@ class StudentControllerTest {
         ).andExpectAll(
                 status().isCreated(),
                 jsonPath("$.message").value("Successfully create new student"),
+                jsonPath("$.data.id").value(createStudentRequest.getId()),
                 jsonPath("$.data.nim").value(createStudentRequest.getNim()),
                 jsonPath("$.data.name").value(createStudentRequest.getName()),
                 jsonPath("$.data.address").value(createStudentRequest.getAddress()),
@@ -63,8 +65,9 @@ class StudentControllerTest {
         );
 
         // Test data is created in database
-        Student student = studentRepository.findById(createStudentRequest.getNim()).orElse(null);
+        Student student = studentRepository.findById(createStudentRequest.getId()).orElse(null);
         assertNotNull(student);
+        assertEquals(createStudentRequest.getId(), student.getId());
         assertEquals(createStudentRequest.getNim(), student.getNim());
         assertEquals(createStudentRequest.getName(), student.getName());
         assertEquals(createStudentRequest.getAddress(), student.getAddress());
@@ -76,6 +79,7 @@ class StudentControllerTest {
     void testCannotBlankCreateStudent() throws Exception {
         // mock data request (Name is blank)
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
+        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
         createStudentRequest.setPhone("0234234324323");
@@ -87,7 +91,7 @@ class StudentControllerTest {
         ).andExpectAll(status().isUnprocessableEntity());
 
         // Test data is created in database
-        Student student = studentRepository.findById(createStudentRequest.getNim()).orElse(null);
+        Student student = studentRepository.findById(createStudentRequest.getId()).orElse(null);
         assertNull(student);
     }
 
@@ -95,6 +99,7 @@ class StudentControllerTest {
     void testCannotDuplicateNIM() throws Exception {
         // mock data request
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
+        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setName("Agung Prasetyo Nugroho");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
@@ -102,6 +107,7 @@ class StudentControllerTest {
 
         // store first data with same NIM
         studentRepository.save(Student.builder()
+                .id(createStudentRequest.getId())
                 .nim(createStudentRequest.getNim())
                 .name(createStudentRequest.getName())
                 .address(createStudentRequest.getAddress())
@@ -118,8 +124,8 @@ class StudentControllerTest {
         );
 
         // Ensure in database only has one data with same NIM
-        Long contNim = studentRepository.countByNim(createStudentRequest.getNim());
-        assertEquals(1L, contNim);
+        Long contId = studentRepository.countById(createStudentRequest.getId());
+        assertEquals(1L, contId);
     }
 
 }

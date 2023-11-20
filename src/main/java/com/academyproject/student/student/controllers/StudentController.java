@@ -35,10 +35,10 @@ public class StudentController {
         );
     }
 
-    @PutMapping("/{nim}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object>
-    update(@PathVariable String nim, @RequestBody UpdateStudentRequest studentRequest) {
-        StudentResponse studentResponse = studentService.update(nim, studentRequest);
+    update(@PathVariable String id, @RequestBody UpdateStudentRequest studentRequest) {
+        StudentResponse studentResponse = studentService.update(id, studentRequest);
 
         return ResponseHandler.generateResponse(
                 "Successfully update student",
@@ -46,14 +46,14 @@ public class StudentController {
         );
     }
 
-    @GetMapping("/{nim}")
-    public void show(@PathVariable String nim) {
-        var studentResponse = studentService.findByNim(nim);
+    @GetMapping("/{id}")
+    public void show(@PathVariable String id) {
+        var studentResponse = studentService.findById(id);
     }
 
-    @DeleteMapping("/{nim}")
-    public ResponseEntity<Object> delete(@PathVariable String nim) {
-        studentService.deleteByNim(nim);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable String id) {
+        studentService.deleteById(id);
         return ResponseHandler.successResponse("Successfully delete student", HttpStatus.OK);
     }
 }
