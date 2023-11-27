@@ -37,7 +37,7 @@ public class StudentController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object>
-    update(@PathVariable String id, @RequestBody UpdateStudentRequest studentRequest) {
+    update(@PathVariable Long id, @RequestBody UpdateStudentRequest studentRequest) {
         StudentResponse studentResponse = studentService.update(id, studentRequest);
 
         return ResponseHandler.generateResponse(
@@ -47,12 +47,13 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public void show(@PathVariable String id) {
+    public ResponseEntity<Object> show(@PathVariable Long id) {
         var studentResponse = studentService.findById(id);
+        return ResponseHandler.responseWithoutMessage(studentResponse, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable String id) {
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         studentService.deleteById(id);
         return ResponseHandler.successResponse("Successfully delete student", HttpStatus.OK);
     }

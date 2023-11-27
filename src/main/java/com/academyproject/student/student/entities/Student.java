@@ -1,10 +1,7 @@
 package com.academyproject.student.student.entities;
 
 import com.academyproject.student.student_transcript.entities.StudentTranscript;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,8 +16,9 @@ import java.util.List;
 @Builder
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private String id;
+    private Long id;
 
     @Column(nullable = false)
     private String nim;

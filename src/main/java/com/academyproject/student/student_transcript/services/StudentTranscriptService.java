@@ -36,7 +36,7 @@ public class StudentTranscriptService {
 
     public StudentTranscriptResource save(CreateStudentTranscriptRequest studentRequest) {
         validationService.validate(studentRequest);
-        Student student = studentRepository.findById(studentRequest.getNim())
+        Student student = studentRepository.findById(studentRequest.getId())
                 .orElseThrow(() -> new NotFoundException("Student"));
 
         StudentTranscript studentTranscript = StudentTranscript.builder()

@@ -12,8 +12,9 @@ public class StudentFaker {
     private StudentRepository studentRepository;
 
     public void generateDummyData() {
+        studentRepository.deleteAll();
+
         Student student = Student.builder()
-                .id("177")
                 .nim("672021077")
                 .name("Agung Prasetyo Nugroho")
                 .address("Kec. Pabelan Kab. Semarang")

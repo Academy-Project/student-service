@@ -12,7 +12,7 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class CreateStudentTranscriptRequest {
     @NotBlank
-    private String nim;
+    private Long id;
 
     @NotNull
     @Min(0)

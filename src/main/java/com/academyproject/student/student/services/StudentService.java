@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -33,12 +34,11 @@ public class StudentService {
         validationService.validate(studentRequest);
 
         /* ensure nim is unique */
-        if (studentRepo.existsById(studentRequest.getId())) {
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Id already exists");
+        if (studentRepo.existsByNim(studentRequest.getNim())) {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "NIM already exists");
         }
 
         Student rawStudent = Student.builder()
-                .id(studentRequest.getId())
                 .nim(studentRequest.getNim())
                 .name(studentRequest.getName())
                 .phone(studentRequest.getPhone())
@@ -51,14 +51,14 @@ public class StudentService {
         return handleConvertToStudentResponse(student);
     }
 
-    public StudentResponse findById(String id) {
+    public StudentResponse findById(Long id) {
         Student student = findStudentById(id);
 
         return handleConvertToStudentResponse(student);
 
     }
 
-    public StudentResponse update(String id, UpdateStudentRequest studentRequest) {
+    public StudentResponse update(Long id, UpdateStudentRequest studentRequest) {
         validationService.validate(studentRequest);
 
         var student = findStudentById(id);
@@ -69,14 +69,13 @@ public class StudentService {
         student.setPhone(studentRequest.getPhone());
         student = studentRepo.save(student);
 
-        return handleConvertToStudentResponse(student);
-    }
+        return handleConvertToStudentResponse(student);}
 
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         studentRepo.deleteById(id);
     }
 
-    public Student findStudentById(String id) {
+    public Student findStudentById(Long id) {
         return studentRepo.findById(id)
                 .orElseThrow(() -> new NotFoundException("Student"));
     }
@@ -89,7 +88,7 @@ public class StudentService {
                 .name(student.getName())
                 .phone(student.getPhone())
                 .address(student.getAddress())
-                .totalSks(student.calculateTotalSks())
+//                .totalSks(student.calculateTotalSks())
                 .phone(student.getPhone())
                 .build();
     }

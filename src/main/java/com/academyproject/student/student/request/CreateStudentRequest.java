@@ -12,11 +12,6 @@ import org.springframework.validation.annotation.Validated;
 @NoArgsConstructor
 @Validated
 public class CreateStudentRequest {
-
-    @NotBlank
-    @Size(min = 3, max = 9)
-    private String id;
-
     @NotBlank
     @Size(min = 9, max = 9)
     private String nim;

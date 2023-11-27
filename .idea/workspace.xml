@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="586170d8-2321-4593-8b01-db496298cc55" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/StudentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/StudentApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/advice/RestAdviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/advice/RestAdviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/exceptions/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/exceptions/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/resource/ResponseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/resource/ResponseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/services/ValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/common/services/ValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/entities/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/faker/StudentFaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/faker/StudentFaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/repositories/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/request/CreateStudentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/request/CreateStudentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/request/UpdateStudentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/request/UpdateStudentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/response/StudentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/response/StudentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/services/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student/services/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/controllers/StudentTranscriptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/controllers/StudentTranscriptController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/entities/StudentTranscript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/entities/StudentTranscript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/repositories/StudentTranscriptRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/repositories/StudentTranscriptRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/request/CreateStudentTranscriptRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/request/CreateStudentTranscriptRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/request/UpdateStudentTranscriptRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/request/UpdateStudentTranscriptRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/response/StudentTranscriptResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/response/StudentTranscriptResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/services/StudentTranscriptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/academyproject/student/student_transcript/services/StudentTranscriptService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/academyproject/student/StudentApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/academyproject/student/StudentApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/academyproject/student/student/controllers/StudentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/academyproject/student/student/controllers/StudentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/academyproject/student/student_transcript/controllers/StudentTranscriptControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/academyproject/student/student_transcript/controllers/StudentTranscriptControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/controllers/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/controllers/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/entities/Student$StudentBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/entities/Student$StudentBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/entities/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/entities/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/faker/StudentFaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/faker/StudentFaker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/repositories/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/repositories/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/request/CreateStudentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/request/CreateStudentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/response/StudentResponse$StudentResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/response/StudentResponse$StudentResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/response/StudentResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/response/StudentResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/services/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/academyproject/student/student/services/StudentService.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2YREyeR3kc71Vxw4gl0DJmwyoYG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/linux/Documents/programing/java/spring/academy-microservices/student",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "cd73502828457d15655bbd7a63fb0bc8",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="StudentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="student" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.academyproject.student.StudentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="586170d8-2321-4593-8b01-db496298cc55" name="Changes" comment="" />
+      <created>1700480247852</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700480247852</updated>
+      <workItem from="1700480249472" duration="4148000" />
+      <workItem from="1701001118167" duration="1137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -44,7 +44,6 @@ class StudentControllerTest {
     void testSuccessCreateStudent() throws Exception {
         // mock data request
         CreateStudentRequest createStudentRequest = new CreateStudentRequest();
-        createStudentRequest.setId("177");
         createStudentRequest.setNim("672021077");
         createStudentRequest.setName("Agung Prasetyo Nugroho");
         createStudentRequest.setAddress("Kec. Pabelan Kab. Semarang");
@@ -57,7 +56,6 @@ class StudentControllerTest {
         ).andExpectAll(
                 status().isCreated(),
                 jsonPath("$.message").value("Successfully create new student"),
-                jsonPath("$.data.id").value(createStudentRequest.getId()),
                 jsonPath("$.data.nim").value(createStudentRequest.getNim()),
                 jsonPath("$.data.name").value(createStudentRequest.getName()),
                 jsonPath("$.data.address").value(createStudentRequest.getAddress()),
